@@ -1,3 +1,10 @@
+"""
+MNIST Neural Network from Scratch
+Author: Nihal V S
+Description:
+Implements a fully connected neural network using NumPy to classify handwritten digits.
+"""
+
 import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
