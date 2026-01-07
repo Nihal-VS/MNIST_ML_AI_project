@@ -39,6 +39,13 @@ The goal is to understand how neural networks work internally.
 - Pixel values normalized to range [0, 1]
 - Data shuffled and split into training and development sets
 
+This project uses the MNIST handwritten digits dataset.
+
+The dataset is **not included** in this repository.  
+If the dataset is not found locally, the code will automatically download MNIST from **OpenML** and store it in the `data/` directory.
+
+This ensures the project can be run on any system without manual dataset setup.
+
 ---
 
 ## ▶️ How to Run the Project
