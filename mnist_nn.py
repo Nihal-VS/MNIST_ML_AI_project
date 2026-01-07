@@ -8,8 +8,22 @@ Implements a fully connected neural network using NumPy to classify handwritten 
 import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
+import os
+from sklearn.datasets import fetch_openml
 
-data = pd.read_csv('data/mnist_train_small.csv')
+DATA_PATH = 'data/mnist.csv'
+
+if not os.path.exists(DATA_PATH):
+    print("Dataset not found. Downloading MNIST from OpenML (this may take a few minutes)...")
+    X, y = fetch_openml('mnist_784', version=1, return_X_y=True, as_frame=False)
+    y = y.astype(int)
+
+    os.makedirs('data', exist_ok=True)
+    data = np.column_stack((y, X))
+    pd.DataFrame(data).to_csv(DATA_PATH, index=False)
+else:
+    data = pd.read_csv(DATA_PATH)
+
 
 data = np.array(data)
 m, n = data.shape
